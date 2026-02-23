@@ -1,0 +1,43 @@
+<div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+
+  <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+    <div class="text-white opacity-30">
+      <lucide-icon [name]="CodeIcon" class="w-16 h-16"></lucide-icon>
+    </div>
+  </div>
+
+
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-3">{{ project.title }}</h3>
+    <p class="text-gray-600 mb-4 leading-relaxed">{{ project.description }}</p>
+
+
+    <div class="mb-4">
+      <div class="flex flex-wrap gap-2">
+        @for (tech of project.techStack; track tech) {
+          <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">
+            {{ tech }}
+          </span>
+        }
+      </div>
+    </div>
+
+    <div class="flex space-x-4">
+      <a [href]="project.githubUrl"
+         target="_blank"
+         class="flex items-center space-x-2 bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-300 font-medium">
+        <lucide-icon [name]="GithubIcon" class="w-5 h-5"></lucide-icon>
+        <span>GitHub</span>
+      </a>
+
+      @if (project.liveDemoUrl) {
+        <a [href]="project.liveDemoUrl"
+           target="_blank"
+           class="flex items-center space-x-2 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-medium">
+          <lucide-icon [name]="ExternalLinkIcon" class="w-5 h-5"></lucide-icon>
+          <span>Ver Site</span>
+        </a>
+      }
+    </div>
+  </div>
+</div>
